@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #ff3d57;
+  --color-primary-hover: #ff2745;
+  --color-accent: #ffb800;
+  --color-secondary: #00d4ff;
+  --color-purple: #7b2fff;
+  
+  --color-bg: #f5f2ed;
+  --color-ink: #0d0d0d;
+  --color-ink-muted: #6f6f6f;
+  --color-ink-light: #52525B;
+  --color-card: #ffffff;
+  --color-border: rgba(0,0,0,0.08);
+
+  --font-bricolage: "Bricolage Grotesque", sans-serif;
+  --font-sans: "DM Sans", sans-serif;
+  
+  --radius-xl: 1.25rem;
+}
+
+/* Dark mode variant */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@layer base {
+  :root {
+    --color-bg: #f5f2ed;
+    --color-ink: #0d0d0d;
+    --color-ink-muted: #6f6f6f;
+    --color-ink-light: #52525B;
+    --color-card: #ffffff;
+    --color-border: rgba(0,0,0,0.08);
+  }
+
+  :root[data-theme='dark'] {
+    --color-bg: #0d0d0d;
+    --color-ink: #f5f2ed;
+    --color-ink-muted: #a1a1aa;
+    --color-ink-light: #d4d4d8;
+    --color-card: #18181b;
+    --color-border: rgba(255,255,255,0.08);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg text-ink font-sans transition-colors duration-300;
+  }
+}
+
+@layer utilities {
+  .premium-shadow {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.05);
+  }
+  .dark .premium-shadow {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+  }
+}
